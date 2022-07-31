@@ -26,14 +26,17 @@ const AppProvider = ({ children }) => {
   const[data,setData] = useState([])
   const [index,setIndex] =useState(0)
   const submitHandle =(e)=>{   
+    setError(false)
     const tempUrl = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
       e.preventDefault()
-      setError(false)
       fetchQuestions(tempUrl)
       console.log(category,difficulty)
   }
   const handleCategory=(value)=>{
+    console.log(value)
+    // console.log(table[1])
     setCategory(table[value])
+    console.log(category)
    
   }
   const fetchQuestions = async(url) =>{

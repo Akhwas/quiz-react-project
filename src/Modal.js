@@ -13,7 +13,7 @@ const Modal = () => {
   return <div className={isModalOpen?'modal-container isOpen':'modal-container'}>
     <div className='modal-content'>
     <h2> congrats!</h2>
-    <p>you answered {correct*100/data.length}% of questions correctly</p>
+    <p>you answered {(correct*100/data.length).toFixed()}% of questions correctly</p>
     <button className='close-btn' onClick={reset}>play again</button>
     </div>
   </div>

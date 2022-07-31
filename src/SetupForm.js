@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 const SetupForm = () => {
-  const{amount,setAmount,category,setCategory,difficulty,setDifficulty,submitHandle,handleCategory,error} = useGlobalContext()
+  const{amount,setAmount,category,setCategory,table,difficulty,setDifficulty,submitHandle,handleCategory,error} = useGlobalContext()
   return <section className='quiz quiz-small'>
     
       <form className='setup-form' >
@@ -13,7 +13,7 @@ const SetupForm = () => {
       </div>
       <div className='form-control'>
         <label htmlFor = 'category'>category</label>
-        <select defaultValue = {category} name = 'category' className='form-input' onChange={(e)=>setCategory(e.target.value)}>
+        <select defaultValue='sports' name = 'category' className='form-input' onChange={(e)=>handleCategory(e.target.value)}>
           <option value = 'sports'>sports</option>
           <option value = 'history'>history</option>
           <option value = 'politics'>politics</option> 
@@ -27,7 +27,7 @@ const SetupForm = () => {
           <option value = 'hard'>hard</option> 
         </select>
       </div>
-      {error && <p className='error'>Can't Generate Questions, Please Try Different parameters</p>}
+      {error && (<p className='error'>Can't Generate Questions, Please Try Different parameters</p>)}
       <button type='submit' onClick={(e)=>{submitHandle(e)}}className='submit-btn' >start</button>
     </form>
   </section>
